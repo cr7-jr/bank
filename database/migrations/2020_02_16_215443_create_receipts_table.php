@@ -6,16 +6,15 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateReceiptsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('name_owner_bill');
+            $table->string('number');
+            $table->string('course_number');
+            // $table->string('owners_name');
+            $table->string('name_payment');
             $table->string('value');
             $table->date('relase_date');
             $table->string('bill_type');
@@ -24,11 +23,7 @@ class CreateReceiptsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('receipts');
